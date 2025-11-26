@@ -1,0 +1,353 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Layout Container */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- BAGIAN KIRI (SIDEBAR SPLIT CONTAINER) --- */
+.sidebar {
+    width: 350px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    padding: 0; /* Padding 0 agar container menyentuh tepi */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+    z-index: 10;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+/* Styling Umum untuk Blok Sidebar */
+.sidebar-block {
+    padding: 30px;
+    width: 100%;
+}
+
+/* Tipe 1: Background Gradasi (Untuk Foto & Socials) */
+.bg-gradient {
+    background: linear-gradient(180deg, #00A6F4, #155DFC);
+    color: #fff;
+}
+
+/* Tipe 2: Background Putih (Untuk Pendidikan & Kontak) */
+.bg-white {
+    background-color: #ffffff;
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* --- KONFIGURASI KONTEN DI DALAM BLOK --- */
+
+/* 1. Profile Block (Gradient) */
+.profile-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+
+.photo-container {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #CFD8DC;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.photo-container:hover {
+    transform: scale(1.05);
+    border-color: #fff;
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mobile-name {
+    display: none;
+    color: white;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* 2 & 3. Pendidikan & Kontak (White Background Styles) */
+.bg-white .info-group {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.bg-white h3 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #155DFC; /* Judul section sidebar jadi biru */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.bg-white h3 i {
+    margin-right: 10px;
+    color: #00A6F4; /* Icon judul biru muda */
+}
+
+/* Edu Items di Background Putih */
+.bg-white .edu-item {
+    margin-bottom: 20px;
+}
+
+.bg-white .edu-item h4 {
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.bg-white .edu-item .year {
+    color: #00A6F4;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: block;
+}
+
+.bg-white .edu-item p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.bg-white .gpa {
+    color: #27ae60;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+/* List Kontak di Background Putih */
+.bg-white ul {
+    list-style: none;
+}
+
+.bg-white ul li {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    color: #555;
+}
+
+.bg-white ul li i {
+    width: 30px;
+    color: #155DFC;
+    font-size: 1.1rem;
+}
+
+/* 4. Socials Block (Gradient - Footer Sidebar) */
+.footer-block {
+    margin-top: auto; /* Mendorong ke paling bawah */
+    padding: 30px;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.socials a {
+    color: rgba(255,255,255, 0.8);
+    font-size: 1.5rem;
+    transition: all 0.3s;
+}
+
+.socials a:hover {
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* --- BAGIAN KANAN (MAIN CONTENT) --- */
+.main-content {
+    flex: 1;
+    padding: 60px 80px;
+    background-color: #fff;
+}
+
+.header-name h1 {
+    font-size: 3rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* Sections General */
+section {
+    margin-bottom: 50px;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    border-left: 5px solid #155DFC; /* Aksen Biru */
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+section h2 i {
+    margin-right: 10px;
+    color: #155DFC;
+}
+
+section p {
+    color: #555;
+    text-align: justify;
+}
+
+/* Timeline Experience */
+.timeline-item {
+    display: flex;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.timeline-date {
+    min-width: 80px;
+    font-weight: bold;
+    color: #155DFC; /* Tanggal Biru */
+    padding-top: 5px;
+}
+
+.timeline-content {
+    border-left: 2px solid #ecf0f1;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+.timeline-content h3 {
+    font-size: 1.2rem;
+    color: #34495e;
+}
+
+/* Skills Tags with Gradient */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tags span {
+    background: linear-gradient(90deg, #00A6F4, #155DFC);
+    color: #ffffff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 3px 6px rgba(0, 166, 244, 0.2);
+}
+
+.skill-tags span:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(21, 93, 252, 0.3);
+}
+
+/* Soft Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.ss-item {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+}
+
+.ss-item:hover {
+    border-color: #00A6F4;
+    color: #00A6F4;
+    transform: translateY(-2px);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* --- ANIMASI (JS Trigger) --- */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        overflow-y: visible; /* Matikan scroll di mobile */
+    }
+
+    .mobile-name {
+        display: block;
+    }
+
+    .main-content {
+        padding: 40px 20px;
+    }
+
+    .header-name h1 {
+        font-size: 2rem;
+        display: none;
+    }
+    
+    .header-name .subtitle {
+        text-align: center;
+        margin-top: -20px;
+    }
+}
