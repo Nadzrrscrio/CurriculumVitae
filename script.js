@@ -1,22 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Konfigurasi Intersection Observer
+    
     const observerOptions = {
-        root: null, // viewport
+        root: null, 
         rootMargin: '0px',
-        threshold: 0.1 // memicu saat 10% elemen terlihat
+        threshold: 0.1 
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('show');
-                // Optional: Jika ingin animasi hanya sekali, uncomment baris bawah:
-                // observer.unobserve(entry.target); 
+            } 
+            else {
+                entry.target.classList.remove('show');
             }
         });
     }, observerOptions);
 
-    // Target semua elemen dengan class 'hidden'
     const hiddenElements = document.querySelectorAll('.hidden');
     hiddenElements.forEach((el) => observer.observe(el));
 });
