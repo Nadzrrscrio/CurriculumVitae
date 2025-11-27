@@ -18,13 +18,13 @@ body {
     min-height: 100vh;
 }
 
-/* --- BAGIAN KIRI (SIDEBAR SPLIT CONTAINER) --- */
+/* --- SIDEBAR (KIRI) --- */
 .sidebar {
     width: 350px;
     height: 100vh;
     position: sticky;
     top: 0;
-    padding: 0; /* Padding 0 agar container menyentuh tepi */
+    padding: 0;
     display: flex;
     flex-direction: column;
     box-shadow: 4px 0 15px rgba(0,0,0,0.1);
@@ -33,28 +33,28 @@ body {
     background-color: #fff;
 }
 
-/* Styling Umum untuk Blok Sidebar */
+/* Styling Blok Sidebar */
 .sidebar-block {
     padding: 30px;
     width: 100%;
 }
 
-/* Tipe 1: Background Gradasi (Untuk Foto & Socials) */
+/* Warna Gradient */
 .bg-gradient {
     background: linear-gradient(180deg, #00A6F4, #155DFC);
     color: #fff;
 }
 
-/* Tipe 2: Background Putih (Untuk Pendidikan & Kontak) */
+/* Warna Putih */
 .bg-white {
     background-color: #ffffff;
     color: #333;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0; 
 }
 
-/* --- KONFIGURASI KONTEN DI DALAM BLOK --- */
+/* --- KONTEN SIDEBAR --- */
 
-/* 1. Profile Block (Gradient) */
+/* 1. Profile */
 .profile-block {
     display: flex;
     flex-direction: column;
@@ -68,14 +68,15 @@ body {
     height: 160px;
     border-radius: 50%;
     overflow: hidden;
-    border: 5px solid #CFD8DC;
+    /* Warna outline aesthetic (Platinum/Silver) */
+    border: 5px solid #E0E0E0; 
     box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .photo-container:hover {
     transform: scale(1.05);
-    border-color: #fff;
+    border-color: #fff; /* Berubah putih saat hover */
 }
 
 .profile-photo {
@@ -91,28 +92,38 @@ body {
     text-align: center;
 }
 
-/* 2 & 3. Pendidikan & Kontak (White Background Styles) */
-.bg-white .info-group {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
+/* 2 & 3. Pendidikan & Kontak (JUDUL) */
+/* REVISI HOVER 1: Judul Sidebar (Pendidikan, Kontak) */
 .bg-white h3 {
     font-size: 1.1rem;
     margin-bottom: 20px;
-    color: #155DFC; /* Judul section sidebar jadi biru */
+    color: #155DFC;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
+    
+    /* Transisi Hover */
+    transition: all 0.3s ease;
+    cursor: default; /* Atau pointer jika ingin terlihat bisa diklik */
+    display: inline-block; /* Agar transform bekerja rapi */
+}
+
+.bg-white h3:hover {
+    color: #00A6F4; /* Jadi biru muda */
+    transform: translateX(5px); /* Geser kanan sedikit */
 }
 
 .bg-white h3 i {
     margin-right: 10px;
-    color: #00A6F4; /* Icon judul biru muda */
+    color: #00A6F4;
+    transition: transform 0.3s;
 }
 
-/* Edu Items di Background Putih */
+.bg-white h3:hover i {
+    transform: rotate(10deg); /* Icon sedikit miring saat hover */
+}
+
+/* Edu Items */
 .bg-white .edu-item {
     margin-bottom: 20px;
 }
@@ -141,7 +152,8 @@ body {
     font-size: 0.85rem;
 }
 
-/* List Kontak di Background Putih */
+/* List Kontak */
+/* REVISI HOVER 2: Semua elemen Kontak */
 .bg-white ul {
     list-style: none;
 }
@@ -152,17 +164,36 @@ body {
     display: flex;
     align-items: center;
     color: #555;
+    
+    /* Transisi Hover */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 5px 0; /* Memberi ruang sedikit */
+}
+
+.bg-white ul li:hover {
+    color: #155DFC; /* Teks jadi biru tua */
+    transform: translateX(8px); /* Geser kanan */
+    background-color: rgba(240, 248, 255, 0.5); /* Background biru sangat tipis */
+    padding-left: 10px; /* Padding kiri nambah saat hover */
+    border-radius: 5px;
 }
 
 .bg-white ul li i {
     width: 30px;
     color: #155DFC;
     font-size: 1.1rem;
+    transition: transform 0.3s;
 }
 
-/* 4. Socials Block (Gradient - Footer Sidebar) */
+.bg-white ul li:hover i {
+    transform: scale(1.2); /* Icon membesar */
+    color: #00A6F4;
+}
+
+/* 4. Socials (Footer Sidebar) */
 .footer-block {
-    margin-top: auto; /* Mendorong ke paling bawah */
+    margin-top: auto; 
     padding: 30px;
 }
 
@@ -180,10 +211,10 @@ body {
 
 .socials a:hover {
     color: #fff;
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.1);
 }
 
-/* --- BAGIAN KANAN (MAIN CONTENT) --- */
+/* --- MAIN CONTENT (KANAN) --- */
 .main-content {
     flex: 1;
     padding: 60px 80px;
@@ -203,24 +234,40 @@ body {
     font-weight: 300;
 }
 
-/* Sections General */
+/* General Section */
 section {
     margin-bottom: 50px;
 }
 
+/* REVISI HOVER 3, 5, 6: Judul Section (Tentang Saya, Keahlian, Soft Skills) */
 section h2 {
     font-size: 1.5rem;
     color: #2c3e50;
     margin-bottom: 20px;
-    border-left: 5px solid #155DFC; /* Aksen Biru */
+    border-left: 5px solid #155DFC;
     padding-left: 15px;
     display: flex;
     align-items: center;
+    
+    /* Transisi Hover */
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+section h2:hover {
+    color: #00A6F4; /* Teks jadi biru muda */
+    border-left-color: #00A6F4; /* Garis pinggir jadi biru muda */
+    padding-left: 20px; /* Garis menjauh sedikit */
 }
 
 section h2 i {
     margin-right: 10px;
     color: #155DFC;
+    transition: color 0.3s;
+}
+
+section h2:hover i {
+    color: #00A6F4;
 }
 
 section p {
@@ -228,7 +275,7 @@ section p {
     text-align: justify;
 }
 
-/* Timeline Experience */
+/* Timeline */
 .timeline-item {
     display: flex;
     margin-bottom: 25px;
@@ -238,7 +285,7 @@ section p {
 .timeline-date {
     min-width: 80px;
     font-weight: bold;
-    color: #155DFC; /* Tanggal Biru */
+    color: #155DFC;
     padding-top: 5px;
 }
 
@@ -248,12 +295,24 @@ section p {
     padding-bottom: 10px;
 }
 
+/* REVISI HOVER 4: Judul Proyek (Timeline) */
 .timeline-content h3 {
     font-size: 1.2rem;
     color: #34495e;
+    
+    /* Transisi Hover */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
 }
 
-/* Skills Tags with Gradient */
+.timeline-content h3:hover {
+    color: #155DFC; /* Biru Utama */
+    transform: translateX(3px); /* Geser dikit */
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+}
+
+/* Skill Tags */
 .skill-tags {
     display: flex;
     flex-wrap: wrap;
@@ -269,14 +328,16 @@ section p {
     font-weight: 600;
     transition: all 0.3s;
     box-shadow: 0 3px 6px rgba(0, 166, 244, 0.2);
+    cursor: default;
 }
 
+/* Hover Effect pada Tags (Optional tapi bagus) */
 .skill-tags span:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
     box-shadow: 0 5px 12px rgba(21, 93, 252, 0.3);
 }
 
-/* Soft Skills Grid */
+/* Soft Skills */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -291,12 +352,14 @@ section p {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     transition: all 0.3s;
+    cursor: default;
 }
 
 .ss-item:hover {
     border-color: #00A6F4;
     color: #00A6F4;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    background-color: #fbfdff;
 }
 
 .footer {
@@ -308,7 +371,7 @@ section p {
     font-style: italic;
 }
 
-/* --- ANIMASI (JS Trigger) --- */
+/* --- ANIMASI --- */
 .hidden {
     opacity: 0;
     transform: translateY(30px);
@@ -330,7 +393,7 @@ section p {
         width: 100%;
         height: auto;
         position: relative;
-        overflow-y: visible; /* Matikan scroll di mobile */
+        overflow: visible;
     }
 
     .mobile-name {
@@ -342,7 +405,6 @@ section p {
     }
 
     .header-name h1 {
-        font-size: 2rem;
         display: none;
     }
     
